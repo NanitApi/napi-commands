@@ -1,0 +1,12 @@
+plugins {
+	id "java"
+}
+
+allprojects {
+	group 'ru.napi'
+	version '1.0'
+
+	repositories {
+		mavenCentral()
+	}
+}

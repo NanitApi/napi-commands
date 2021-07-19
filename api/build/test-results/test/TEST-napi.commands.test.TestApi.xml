@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="napi.commands.test.TestApi" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-07-19T14:09:05" hostname="NANIT-PC" time="0.097">
+  <properties/>
+  <testcase name="testArgsParsing()" classname="napi.commands.test.TestApi" time="0.066"/>
+  <testcase name="testArguments()" classname="napi.commands.test.TestApi" time="0.028"/>
+  <testcase name="test1()" classname="napi.commands.test.TestApi" time="0.001"/>
+  <system-out><![CDATA[[test, sub, vasya, ]
+CommandArguments{pointer:-1, args:[arg1, arg2, arg3, arg4, arg5]}
+Next is arg5
+CommandArguments{pointer:2, args:[arg1, arg2, arg4, arg5]}
+Next is arg5
+null
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

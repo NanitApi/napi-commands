@@ -1,0 +1,6 @@
+[test, sub, vasya, ]
+CCommandArguments{pointer:-1, args:[arg1, arg2, arg3, arg4, arg5]}
+Next is arg5
+<CommandArguments{pointer:2, args:[arg1, arg2, arg4, arg5]}
+Next is arg5
+null
