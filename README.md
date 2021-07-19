@@ -6,7 +6,7 @@ This is simple and lightweight commands api for Bukkit and BungeeCord
 
 Add library to project via JitPack
 
-**Gradle**
+### Gradle
 
 ```groovy
 repositories {
@@ -14,8 +14,18 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.NanitApi.napi-commands:commands-bukkit:main-SNAPSHOT'
+    implementation 'com.github.NanitApi.napi-commands:api:main-SNAPSHOT'
 }
 ```
 
-For BungeeCord use `commands-bungee` module.
+#### Bukkit
+
+```groovy
+implementation 'com.github.NanitApi.napi-commands:commands-bukkit:main-SNAPSHOT'
+```
+
+#### BungeeCord
+
+```groovy
+implementation 'com.github.NanitApi.napi-commands:commands-bungee:main-SNAPSHOT'
+```
