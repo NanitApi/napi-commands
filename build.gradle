@@ -3,7 +3,7 @@ plugins {
 }
 
 allprojects {
-	group 'ru.napi'
+	group 'napi'
 	version '1.0'
 
 	repositories {

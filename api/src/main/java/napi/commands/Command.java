@@ -79,13 +79,22 @@ public final class Command implements CommandCallable {
 
             this.arguments.parse(sender, args, context);
 
-            if(args.hasNext()){
+            if(args.hasNext()) {
                 throw new ArgumentParseException("Too many arguments")
                         .withMessage(ErrorMessages.ARGS_TOO_MANY);
             }
 
             executor.execute(sender, context);
-        } catch (ArgumentParseException e){
+        } catch (ArgumentParseException e) {
+            if (!(executor instanceof DefaultExecutor)) {
+                try {
+                    executor.execute(sender, context);
+                    return;
+                } catch (CommandException ex) {
+                    sendErrorMessage(sender, ex);
+                }
+            }
+
             if (e.getLocalizedMessage() != null){
                 sender.sendMessage(e.getLocalizedMessage());
             }
@@ -93,14 +102,18 @@ public final class Command implements CommandCallable {
             if (e.isSendHelp()){
                 getHelp().ifPresent(sender::sendMessage);
             }
-        } catch (CommandException e){
-            if (e.getLocalizedMessage() != null){
-                sender.sendMessage(e.getLocalizedMessage());
-            }
+        } catch (CommandException e) {
+            sendErrorMessage(sender, e);
+        }
+    }
 
-            if (e.isSendHelp()){
-                getHelp().ifPresent(sender::sendMessage);
-            }
+    private void sendErrorMessage(CommandSender sender, CommandException e) {
+        if (e.getLocalizedMessage() != null){
+            sender.sendMessage(e.getLocalizedMessage());
+        }
+
+        if (e.isSendHelp()){
+            getHelp().ifPresent(sender::sendMessage);
         }
     }
 

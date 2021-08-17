@@ -27,6 +27,7 @@ public class TestCommand {
         Command command = Command.builder()
                 .child(child1, "sub")
                 .child(child2, "sub2")
+                .executor((sender, args) -> {})
                 .build();
 
         manager.register(command, "test", "t");
