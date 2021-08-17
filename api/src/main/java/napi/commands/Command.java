@@ -89,10 +89,10 @@ public final class Command implements CommandCallable {
             if (!(executor instanceof DefaultExecutor)) {
                 try {
                     executor.execute(sender, context);
-                    return;
                 } catch (CommandException ex) {
                     sendErrorMessage(sender, ex);
                 }
+                return;
             }
 
             if (e.getLocalizedMessage() != null){
@@ -232,7 +232,7 @@ public final class Command implements CommandCallable {
             List<CommandNode> nodes = new ArrayList<>();
 
             if (!children.isEmpty()){
-                ChildCommandExecutor childExecutor = new ChildCommandExecutor();
+                ChildCommandExecutor childExecutor = new ChildCommandExecutor(executor);
 
                 for (Map.Entry<List<String>, Command> entry : children.entrySet()){
                     childExecutor.register(entry.getValue(), entry.getKey());

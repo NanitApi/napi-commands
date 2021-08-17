@@ -13,7 +13,6 @@ public class TestCommand {
 
         Command child1 = Command.builder()
                 .executor((sender, args)->{
-                    Window.Type type = args.<Window.Type>get("type").get();
                     System.out.println("This is child command 1");
                 })
                 .build();
