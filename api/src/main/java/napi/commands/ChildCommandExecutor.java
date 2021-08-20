@@ -18,11 +18,9 @@ public final class ChildCommandExecutor extends CommandNode implements CommandEx
     private static final AtomicInteger COUNTER = new AtomicInteger();
 
     private final CommandManager commandManager;
-    private final CommandExecutor fallback;
 
-    public ChildCommandExecutor(CommandExecutor fallback) {
+    public ChildCommandExecutor() {
         super("child_" + COUNTER.getAndIncrement());
-        this.fallback = fallback;
         this.commandManager = new ChildCommandManager();
     }
 
@@ -81,12 +79,8 @@ public final class ChildCommandExecutor extends CommandNode implements CommandEx
             command.get().checkPermission(sender);
             command.get().getExecutor().execute(sender, args);
         } else {
-            if (fallback != null) {
-                fallback.execute(sender, args);
-            } else {
-                throw new CommandException("Child command not exists", true)
-                        .withMessage(ErrorMessages.CHILD_NOT_FOUND);
-            }
+            throw new CommandException("Child command not exists", true)
+                    .withMessage(ErrorMessages.CHILD_NOT_FOUND);
         }
     }
 

@@ -86,15 +86,6 @@ public final class Command implements CommandCallable {
 
             executor.execute(sender, context);
         } catch (ArgumentParseException e) {
-            if (!(executor instanceof DefaultExecutor)) {
-                try {
-                    executor.execute(sender, context);
-                } catch (CommandException ex) {
-                    sendErrorMessage(sender, ex);
-                }
-                return;
-            }
-
             if (e.getLocalizedMessage() != null){
                 sender.sendMessage(e.getLocalizedMessage());
             }
@@ -232,7 +223,7 @@ public final class Command implements CommandCallable {
             List<CommandNode> nodes = new ArrayList<>();
 
             if (!children.isEmpty()){
-                ChildCommandExecutor childExecutor = new ChildCommandExecutor(executor);
+                ChildCommandExecutor childExecutor = new ChildCommandExecutor();
 
                 for (Map.Entry<List<String>, Command> entry : children.entrySet()){
                     childExecutor.register(entry.getValue(), entry.getKey());
