@@ -1,21 +1,27 @@
 package napi.commands.parsed;
 
 import napi.commands.exception.ArgumentParseException;
-import napi.commands.ErrorMessages;
+import napi.commands.manager.CommandManager;
 
 import java.util.*;
 
 public final class CommandArguments {
 
+    private final CommandManager manager;
     private List<String> arguments;
     private int pointer = -1;
 
-    public CommandArguments(Collection<String> arguments){
+    public CommandArguments(CommandManager manager, Collection<String> arguments){
+        this.manager = manager;
         this.arguments = new ArrayList<>(arguments);
     }
 
-    public CommandArguments(String[] arguments){
-        this(Arrays.asList(arguments));
+    public CommandArguments(CommandManager manager, String[] arguments){
+        this(manager, Arrays.asList(arguments));
+    }
+
+    public CommandManager getManager() {
+        return manager;
     }
 
     public int getPointer(){
@@ -150,14 +156,14 @@ public final class CommandArguments {
      * @return Copy of the arguments
      */
     public CommandArguments snapshot(){
-        CommandArguments snapshot = new CommandArguments(this.getArguments());
+        CommandArguments snapshot = new CommandArguments(manager, this.getArguments());
         snapshot.pointer = this.pointer;
         return snapshot;
     }
 
     private ArgumentParseException outOfBounds() {
         return new ArgumentParseException("Arguments out of bound")
-                .withMessage(ErrorMessages.ARGS_OUT_OF_BOUNDS);
+                .withMessage(manager.getMessages().getArgsOutOfBounds());
     }
 
     @Override

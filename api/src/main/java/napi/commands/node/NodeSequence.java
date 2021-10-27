@@ -30,7 +30,7 @@ public class NodeSequence extends CommandNode {
     @Override
     public List<String> getSuggestions(CommandSender sender, CommandArguments args) {
         Set<String> completions = new HashSet<>();
-        CommandContext context = new CommandContext();
+        CommandContext context = new CommandContext(sender.getManager());
 
         for (CommandNode node : this.nodes) {
             CommandArguments state = args.snapshot();

@@ -17,7 +17,7 @@ public class NodeInteger extends CommandNode {
             return Integer.parseInt(args.next());
         } catch (NumberFormatException e){
             throw new ArgumentParseException("Cannot parse double from string")
-                    .withMessage(ErrorMessages.TYPE_ERR_INT);
+                    .withMessage(sender.getManager().getMessages().getTypeErrInt());
         }
     }
 

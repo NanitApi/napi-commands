@@ -1,7 +1,6 @@
 package napi.commands.bukkit.nodes;
 
 import napi.commands.exception.ArgumentParseException;
-import napi.commands.ErrorMessages;
 import napi.commands.node.CommandNode;
 import napi.commands.parsed.CommandArguments;
 import napi.commands.parsed.CommandSender;
@@ -30,7 +29,7 @@ public class NodeWorld extends CommandNode {
 
         if (world == null){
             throw new ArgumentParseException("Invalid world name")
-                    .withMessage(ErrorMessages.TYPE_ERR_WORLD);
+                    .withMessage(sender.getManager().getMessages().getTypeErrWorld());
         }
 
         return world;

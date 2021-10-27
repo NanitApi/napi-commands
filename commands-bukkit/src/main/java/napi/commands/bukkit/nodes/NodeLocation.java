@@ -29,7 +29,7 @@ public class NodeLocation extends CommandNode {
 
             if (world == null){
                 throw new ArgumentParseException("Invalid world name")
-                        .withMessage(ErrorMessages.TYPE_ERR_WORLD);
+                        .withMessage(sender.getManager().getMessages().getTypeErrWorld());
             }
 
             double x = Double.parseDouble(args.next());
@@ -41,7 +41,7 @@ public class NodeLocation extends CommandNode {
             location = new Location(world, x, y, z, yaw, pitch);
         } catch (NumberFormatException e){
             throw new ArgumentParseException("Error while parse number")
-                    .withMessage(ErrorMessages.TYPE_ERR_LOCATION);
+                    .withMessage(sender.getManager().getMessages().getTypeErrLocation());
         }
 
         return location;

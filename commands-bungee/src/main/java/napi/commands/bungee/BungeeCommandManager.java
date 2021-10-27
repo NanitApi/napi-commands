@@ -47,7 +47,7 @@ public final class BungeeCommandManager extends AbstractCommandManager implement
             bungeeSender = ConsoleCommandSender.getInstance();
         }
 
-        BungeeCommandSender sender = new BungeeCommandSender(bungeeSender);
+        BungeeCommandSender sender = new BungeeCommandSender(this, bungeeSender);
         List<String> suggestions = complete(sender, line);
 
         event.getSuggestions().addAll(suggestions);

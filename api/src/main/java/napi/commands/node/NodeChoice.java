@@ -1,7 +1,6 @@
 package napi.commands.node;
 
 import napi.commands.exception.ArgumentParseException;
-import napi.commands.ErrorMessages;
 import napi.commands.parsed.CommandArguments;
 import napi.commands.parsed.CommandSender;
 
@@ -27,7 +26,7 @@ public class NodeChoice extends CommandNode {
 
         if (!values.contains(value)){
             throw new ArgumentParseException("Invalid choice value")
-                    .withMessage(ErrorMessages.TYPE_ERR_CHOICE);
+                    .withMessage(sender.getManager().getMessages().getTypeErrChoice());
         }
 
         return value;

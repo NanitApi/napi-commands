@@ -1,5 +1,7 @@
 package napi.commands.parsed;
 
+import napi.commands.manager.CommandManager;
+
 import java.util.Optional;
 import java.util.UUID;
 
@@ -7,6 +9,12 @@ import java.util.UUID;
  * Represent user who performs command.
  */
 public interface CommandSender {
+
+    /**
+     * Get command manager created this sender
+     * @return Command manager instance
+     */
+    CommandManager getManager();
 
     /**
      * Get native sender object

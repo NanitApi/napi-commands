@@ -44,7 +44,7 @@ public class NodePosition extends CommandNode {
             location = new Location(world, x, y, z, 0.0F, 0.0F);
         } catch (NumberFormatException e){
             throw new ArgumentParseException("Error while parse number")
-                    .withMessage(ErrorMessages.TYPE_ERR_LOCATION);
+                    .withMessage(sender.getManager().getMessages().getTypeErrLocation());
         }
 
         return location;

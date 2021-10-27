@@ -1,5 +1,6 @@
 package napi.commands.bungee;
 
+import napi.commands.manager.CommandManager;
 import napi.commands.parsed.CommandSender;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
@@ -9,10 +10,17 @@ import java.util.UUID;
 
 public final class BungeeCommandSender implements CommandSender {
 
+    private final CommandManager manager;
     private final net.md_5.bungee.api.CommandSender sender;
 
-    public BungeeCommandSender(net.md_5.bungee.api.CommandSender sender){
+    public BungeeCommandSender(CommandManager manager, net.md_5.bungee.api.CommandSender sender) {
+        this.manager = manager;
         this.sender = sender;
+    }
+
+    @Override
+    public CommandManager getManager() {
+        return manager;
     }
 
     @Override

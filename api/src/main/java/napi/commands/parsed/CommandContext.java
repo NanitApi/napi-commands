@@ -1,5 +1,8 @@
 package napi.commands.parsed;
 
+import napi.commands.ErrorMessages;
+import napi.commands.manager.CommandManager;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -10,14 +13,21 @@ import java.util.Optional;
  */
 public final class CommandContext {
 
+    private final CommandManager manager;
     private final Map<String, Object> arguments;
 
-    public CommandContext(){
+    public CommandContext(CommandManager manager) {
+        this.manager = manager;
         this.arguments = new HashMap<>();
     }
 
-    private CommandContext(Map<String, Object> arguments){
+    private CommandContext(CommandManager manager, Map<String, Object> arguments) {
+        this.manager = manager;
         this.arguments = arguments;
+    }
+
+    public CommandManager getManager() {
+        return manager;
     }
 
     /**
@@ -144,7 +154,7 @@ public final class CommandContext {
     }
 
     public CommandContext snapshot(){
-        return new CommandContext(new HashMap<>(this.arguments));
+        return new CommandContext(manager, new HashMap<>(this.arguments));
     }
 
     public void apply(CommandContext context){

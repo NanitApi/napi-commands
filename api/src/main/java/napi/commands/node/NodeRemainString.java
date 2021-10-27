@@ -1,6 +1,5 @@
 package napi.commands.node;
 
-import napi.commands.ErrorMessages;
 import napi.commands.exception.ArgumentParseException;
 import napi.commands.parsed.CommandArguments;
 import napi.commands.parsed.CommandSender;
@@ -18,7 +17,7 @@ public class NodeRemainString extends CommandNode {
     public Object parseValue(CommandSender sender, CommandArguments args) throws ArgumentParseException {
         if (!args.hasNext()){
             throw new ArgumentParseException("Argument not exists")
-                    .withMessage(ErrorMessages.ARGS_OUT_OF_BOUNDS);
+                    .withMessage(sender.getManager().getMessages().getArgsOutOfBounds());
         }
 
         List<String> list = new ArrayList<>();

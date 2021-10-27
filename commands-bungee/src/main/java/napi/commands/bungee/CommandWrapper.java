@@ -15,7 +15,7 @@ public final class CommandWrapper extends Command {
     @Override
     public void execute(CommandSender commandSender, String[] args) {
         String line = getName() + " " + String.join(" ", args);
-        BungeeCommandSender sender = new BungeeCommandSender(commandSender);
+        BungeeCommandSender sender = new BungeeCommandSender(manager, commandSender);
         manager.process(sender, line);
     }
 

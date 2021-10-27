@@ -17,7 +17,7 @@ public final class CommandWrapper extends BukkitCommand {
     @Override
     public boolean execute(CommandSender bsender, String label, String[] args) {
         String line = label + " " + String.join(" ", args);
-        BukkitCommandSender sender = new BukkitCommandSender(bsender);
+        BukkitCommandSender sender = new BukkitCommandSender(manager, bsender);
         manager.process(sender, line);
         return true;
     }
@@ -25,7 +25,7 @@ public final class CommandWrapper extends BukkitCommand {
     @Override
     public List<String> tabComplete(CommandSender bsender, String alias, String[] args) throws IllegalArgumentException {
         String line = alias + " " + String.join(" ", args);
-        BukkitCommandSender sender = new BukkitCommandSender(bsender);
+        BukkitCommandSender sender = new BukkitCommandSender(manager, bsender);
         return manager.complete(sender, line);
     }
 }

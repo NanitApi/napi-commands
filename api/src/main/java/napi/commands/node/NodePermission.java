@@ -49,7 +49,7 @@ public class NodePermission extends CommandNode {
         boolean hasPermission = sender.hasPermission(this.permission);
         if (!hasPermission && this.throwError) {
             throw new ArgumentParseException("Argument permission deny")
-                    .withMessage(ErrorMessages.PERMISSION_DENY_ARG);
+                    .withMessage(sender.getManager().getMessages().getPermissionDenyArg());
         }
         return hasPermission;
     }

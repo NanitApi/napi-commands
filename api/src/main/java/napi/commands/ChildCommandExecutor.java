@@ -80,7 +80,7 @@ public final class ChildCommandExecutor extends CommandNode implements CommandEx
             command.get().getExecutor().execute(sender, args);
         } else {
             throw new CommandException("Child command not exists", true)
-                    .withMessage(ErrorMessages.CHILD_NOT_FOUND);
+                    .withMessage(sender.getManager().getMessages().getChildNotFound());
         }
     }
 

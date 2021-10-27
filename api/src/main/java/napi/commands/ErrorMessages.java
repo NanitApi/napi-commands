@@ -2,38 +2,147 @@ package napi.commands;
 
 public final class ErrorMessages {
 
-    public static String PERMISSION_DENY;
-    public static String PERMISSION_DENY_ARG;
-    public static String ARGS_OUT_OF_BOUNDS;
-    public static String ARGS_TOO_MANY;
-    public static String TYPE_ERR_INT;
-    public static String TYPE_ERR_DOUBLE;
-    public static String TYPE_ERR_BOOL;
-    public static String TYPE_ERR_ENUM;
-    public static String TYPE_ERR_CHOICE;
-    public static String TYPE_ERR_LOCATION;
-    public static String TYPE_ERR_WORLD;
-    public static String CHILD_NOT_FOUND;
-    public static String PLAYER_NOT_FOUND;
-    public static String SERVER_NOT_FOUND;
+    private String permissionDeny;
+    private String permissionDenyArg;
+    private String argsOutOfBounds;
+    private String argsTooMany;
+    private String typeErrInt;
+    private String typeErrDouble;
+    private String typeErrBool;
+    private String typeErrEnum;
+    private String typeErrChoice;
+    private String typeErrLocation;
+    private String typeErrWorld;
+    private String childNotFound;
+    private String playerNotFound;
+    private String serverNotFound;
 
-    private ErrorMessages() { }
-
-    static {
-        PERMISSION_DENY = "You don't have permission for this command";
-        PERMISSION_DENY_ARG = "You don't have permission to use this argument";
-        ARGS_OUT_OF_BOUNDS = "The required argument not exists";
-        ARGS_TOO_MANY = "Too many arguments";
-        TYPE_ERR_INT = "The argument must be integer";
-        TYPE_ERR_DOUBLE = "The argument must be double";
-        TYPE_ERR_BOOL = "The argument must be boolean";
-        TYPE_ERR_ENUM = "Invalid enum value. Select one of the suggest values";
-        TYPE_ERR_CHOICE = "Invalid value. Select one of the suggest values";
-        TYPE_ERR_LOCATION = "Invalid location parameter. You need to use numbers";
-        TYPE_ERR_WORLD = "World with this name not exists";
-        CHILD_NOT_FOUND = "Child command with this name not found";
-        PLAYER_NOT_FOUND = "Player with this name not found";
-        SERVER_NOT_FOUND = "Server with this name not found";
+    public ErrorMessages() {
+        permissionDeny = "You don't have permission for this command";
+        permissionDenyArg = "You don't have permission to use this argument";
+        argsOutOfBounds = "The required argument not exists";
+        argsTooMany = "Too many arguments";
+        typeErrInt = "The argument must be integer";
+        typeErrDouble = "The argument must be double";
+        typeErrBool = "The argument must be boolean";
+        typeErrEnum = "Invalid enum value. Select one of the suggest values";
+        typeErrChoice = "Invalid value. Select one of the suggest values";
+        typeErrLocation = "Invalid location parameter. You need to use numbers";
+        typeErrWorld = "World with this name not exists";
+        childNotFound = "Child command with this name not found";
+        playerNotFound = "Player with this name not found";
+        serverNotFound = "Server with this name not found";
     }
 
+    public String getPermissionDeny() {
+        return permissionDeny;
+    }
+
+    public void setPermissionDeny(String permissionDeny) {
+        this.permissionDeny = permissionDeny;
+    }
+
+    public String getPermissionDenyArg() {
+        return permissionDenyArg;
+    }
+
+    public void setPermissionDenyArg(String permissionDenyArg) {
+        this.permissionDenyArg = permissionDenyArg;
+    }
+
+    public String getArgsOutOfBounds() {
+        return argsOutOfBounds;
+    }
+
+    public void setArgsOutOfBounds(String argsOutOfBounds) {
+        this.argsOutOfBounds = argsOutOfBounds;
+    }
+
+    public String getArgsTooMany() {
+        return argsTooMany;
+    }
+
+    public void setArgsTooMany(String argsTooMany) {
+        this.argsTooMany = argsTooMany;
+    }
+
+    public String getTypeErrInt() {
+        return typeErrInt;
+    }
+
+    public void setTypeErrInt(String typeErrInt) {
+        this.typeErrInt = typeErrInt;
+    }
+
+    public String getTypeErrDouble() {
+        return typeErrDouble;
+    }
+
+    public void setTypeErrDouble(String typeErrDouble) {
+        this.typeErrDouble = typeErrDouble;
+    }
+
+    public String getTypeErrBool() {
+        return typeErrBool;
+    }
+
+    public void setTypeErrBool(String typeErrBool) {
+        this.typeErrBool = typeErrBool;
+    }
+
+    public String getTypeErrEnum() {
+        return typeErrEnum;
+    }
+
+    public void setTypeErrEnum(String typeErrEnum) {
+        this.typeErrEnum = typeErrEnum;
+    }
+
+    public String getTypeErrChoice() {
+        return typeErrChoice;
+    }
+
+    public void setTypeErrChoice(String typeErrChoice) {
+        this.typeErrChoice = typeErrChoice;
+    }
+
+    public String getTypeErrLocation() {
+        return typeErrLocation;
+    }
+
+    public void setTypeErrLocation(String typeErrLocation) {
+        this.typeErrLocation = typeErrLocation;
+    }
+
+    public String getTypeErrWorld() {
+        return typeErrWorld;
+    }
+
+    public void setTypeErrWorld(String typeErrWorld) {
+        this.typeErrWorld = typeErrWorld;
+    }
+
+    public String getChildNotFound() {
+        return childNotFound;
+    }
+
+    public void setChildNotFound(String childNotFound) {
+        this.childNotFound = childNotFound;
+    }
+
+    public String getPlayerNotFound() {
+        return playerNotFound;
+    }
+
+    public void setPlayerNotFound(String playerNotFound) {
+        this.playerNotFound = playerNotFound;
+    }
+
+    public String getServerNotFound() {
+        return serverNotFound;
+    }
+
+    public void setServerNotFound(String serverNotFound) {
+        this.serverNotFound = serverNotFound;
+    }
 }

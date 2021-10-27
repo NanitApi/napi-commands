@@ -1,5 +1,6 @@
 package napi.commands.bukkit;
 
+import napi.commands.manager.CommandManager;
 import napi.commands.parsed.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -8,10 +9,17 @@ import java.util.UUID;
 
 public final class BukkitCommandSender implements CommandSender {
 
+    private final CommandManager manager;
     private final org.bukkit.command.CommandSender sender;
 
-    public BukkitCommandSender(org.bukkit.command.CommandSender sender){
+    public BukkitCommandSender(CommandManager manager, org.bukkit.command.CommandSender sender){
+        this.manager = manager;
         this.sender = sender;
+    }
+
+    @Override
+    public CommandManager getManager() {
+        return manager;
     }
 
     @Override

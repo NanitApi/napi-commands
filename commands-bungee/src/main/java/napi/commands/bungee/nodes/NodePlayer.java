@@ -1,6 +1,5 @@
 package napi.commands.bungee.nodes;
 
-import napi.commands.ErrorMessages;
 import napi.commands.exception.ArgumentParseException;
 import napi.commands.node.CommandNode;
 import napi.commands.parsed.CommandArguments;
@@ -30,7 +29,7 @@ public class NodePlayer extends CommandNode {
 
         if (player == null){
             throw new ArgumentParseException("Player not found")
-                    .withMessage(ErrorMessages.PLAYER_NOT_FOUND);
+                    .withMessage(sender.getManager().getMessages().getPlayerNotFound());
         }
 
         return player;

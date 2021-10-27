@@ -1,5 +1,6 @@
 package napi.commands.manager;
 
+import napi.commands.ErrorMessages;
 import napi.commands.exception.ArgumentParseException;
 import napi.commands.parsed.CommandContext;
 import napi.commands.Command;
@@ -11,7 +12,17 @@ import java.util.stream.Collectors;
 
 public abstract class AbstractCommandManager implements CommandManager {
 
+    private final ErrorMessages messages;
     private final Map<String, Command> commands = new HashMap<>();
+
+    public AbstractCommandManager() {
+        messages = new ErrorMessages();
+    }
+
+    @Override
+    public ErrorMessages getMessages() {
+        return messages;
+    }
 
     @Override
     public Command getCommand(String alias) {
@@ -57,10 +68,10 @@ public abstract class AbstractCommandManager implements CommandManager {
             String cmdName = parts[0];
             Command command = getCommand(cmdName);
 
-            if (command != null){
+            if (command != null) {
                 String[] args = Arrays.copyOfRange(parts, 1, parts.length);
-                CommandArguments arguments = new CommandArguments(args);
-                CommandContext context = new CommandContext();
+                CommandArguments arguments = new CommandArguments(this, args);
+                CommandContext context = new CommandContext(this);
 
                 command.execute(sender, arguments, context);
             } else {
@@ -79,7 +90,7 @@ public abstract class AbstractCommandManager implements CommandManager {
 
             if (command != null){
                 parts.remove(0);
-                CommandArguments arguments = new CommandArguments(parts);
+                CommandArguments arguments = new CommandArguments(this, parts);
                 List<String> suggestion = command.complete(sender, arguments);
 
                 try{

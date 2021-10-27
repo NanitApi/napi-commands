@@ -34,7 +34,7 @@ public class NodeEnum extends CommandNode {
             return Enum.valueOf(enumType, args.next());
         } catch (IllegalArgumentException e){
             throw new ArgumentParseException("Invalid enum value")
-                    .withMessage(ErrorMessages.TYPE_ERR_ENUM);
+                    .withMessage(sender.getManager().getMessages().getTypeErrEnum());
         }
     }
 

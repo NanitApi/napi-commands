@@ -63,7 +63,7 @@ public final class Command implements CommandCallable {
     public void checkPermission(CommandSender sender) throws CommandException{
         if (!hasPermission(sender)){
             throw new CommandException("Permission deny")
-                    .withMessage(ErrorMessages.PERMISSION_DENY);
+                    .withMessage(sender.getManager().getMessages().getPermissionDeny());
         }
     }
 
@@ -81,7 +81,7 @@ public final class Command implements CommandCallable {
 
             if(args.hasNext()) {
                 throw new ArgumentParseException("Too many arguments")
-                        .withMessage(ErrorMessages.ARGS_TOO_MANY);
+                        .withMessage(sender.getManager().getMessages().getArgsTooMany());
             }
 
             executor.execute(sender, context);

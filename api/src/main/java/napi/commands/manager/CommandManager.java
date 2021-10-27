@@ -1,6 +1,7 @@
 package napi.commands.manager;
 
 import napi.commands.Command;
+import napi.commands.ErrorMessages;
 import napi.commands.parsed.CommandSender;
 
 import java.util.Collection;
@@ -74,4 +75,10 @@ public interface CommandManager {
     default void register(Command command, List<String> aliases){
         register(command, aliases.toArray(new String[0]));
     }
+
+    /**
+     * Get error messages container
+     * @return Error messages
+     */
+    ErrorMessages getMessages();
 }

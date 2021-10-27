@@ -46,7 +46,7 @@ public class NodeFlagSingle extends CommandNode {
         if (permission != null && !sender.hasPermission(permission)){
             if (throwError){
                 throw new ArgumentParseException("Permission flag deny")
-                        .withMessage(ErrorMessages.PERMISSION_DENY_ARG);
+                        .withMessage(sender.getManager().getMessages().getPermissionDenyArg());
             } else {
                 return false;
             }
